@@ -1,0 +1,27 @@
+# Object files
+*.o
+*.old
+*.obj
+
+# Executables
+ai
+*.out
+
+# Libraries
+*.lib
+*.a
+
+# Debugging files
+vgcore.*
+realtime.*
+
+# Test files
+test.out*
+
+# Editor files
+.vscode/
+
+# Temporary files
+*.log
+*.log.*
+*~

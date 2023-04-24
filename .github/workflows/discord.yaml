@@ -1,0 +1,111 @@
+# Send a notification to Discord when a action
+# is triggered on GitHub.
+name: Discord Notifications
+
+
+# Run on all pushes and pull requests unless
+# the branch name starts with "ga-ignore-".
+on:
+  push:
+    branches-ignore:
+      - 'ga-ignore-**'
+  pull_request:
+    branches-ignore:
+      - 'ga-ignore-**'
+    types:
+      - opened
+      - closed
+  issues:
+    types:
+      - opened
+      - closed
+
+
+# Define the environment variables.
+env:
+
+  # The name of the bot.
+  BOT_NAME: 'GitHub Actions'
+
+  # The avatar of the bot.
+  BOT_AVATAR: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
+
+
+# Define the jobs to run.
+# And the actions / messages to send to Discord.
+jobs:
+
+  # Send a notification to Discord when a push
+  # is made to the repository.
+  push:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Send a notification to Discord
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'A push was made to the repository by ${{ github.actor }}.'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ env.BOT_NAME }}
+          DISCORD_AVATAR: ${{ env.BOT_AVATAR }}
+
+  # Send a notification to Discord when a pull
+  # request is opened.
+  pull_request_opened:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    steps:
+      - name: Send a notification to Discord
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'A pull request was opened by ${{ github.actor }}.'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ env.BOT_NAME }}
+          DISCORD_AVATAR: ${{ env.BOT_AVATAR }}
+
+  # Send a notification to Discord when a pull
+  # request is closed.
+  pull_request_closed:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    steps:
+      - name: Send a notification to Discord
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'A pull request was closed by ${{ github.actor }}.'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ env.BOT_NAME }}
+          DISCORD_AVATAR: ${{ env.BOT_AVATAR }}
+
+  # Send a notification to Discord when an issue
+  # is opened.
+  issue_opened:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    steps:
+      - name: Send a notification to Discord
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'An issue was opened by ${{ github.actor }}.'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ env.BOT_NAME }}
+          DISCORD_AVATAR: ${{ env.BOT_AVATAR }}
+
+  # Send a notification to Discord when an issue
+  # is closed.
+  issue_closed:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'closed'
+    steps:
+      - name: Send a notification to Discord
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'An issue was closed by ${{ github.actor }}.'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_NAME: ${{ env.BOT_NAME }}
+          DISCORD_AVATAR: ${{ env.BOT_AVATAR }}
