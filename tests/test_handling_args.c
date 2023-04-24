@@ -11,7 +11,7 @@
 
 Test(error_handling_args, test_handling_args, .timeout = 5)
 {
-    char *argv[] = {"./mysh", "azerty", NULL};
+    char *argv[] = {"./ai", "azerty", NULL};
     int argc = 2;
 
     cr_assert_eq(error_handling_args(argc, argv), 84);
@@ -19,7 +19,7 @@ Test(error_handling_args, test_handling_args, .timeout = 5)
 
 Test(error_handling_args, test_handling_args2, .timeout = 5)
 {
-    char *argv[] = {"./mysh", "-h\0", NULL};
+    char *argv[] = {"./ai", "-h\0", NULL};
     int argc = 2;
 
     cr_redirect_stdout();
@@ -33,7 +33,7 @@ Test(error_handling_args, test_handling_args2, .timeout = 5)
 
 Test(error_handling_args, test_handling_args3, .timeout = 5)
 {
-    char *argv[] = {"./mysh", "454", "az", NULL};
+    char *argv[] = {"./ai", "454", "az", NULL};
     int argc = 3;
 
     cr_assert_eq(error_handling_args(argc, argv), 84);
@@ -41,7 +41,7 @@ Test(error_handling_args, test_handling_args3, .timeout = 5)
 
 Test (error_handling_args, test_handling_args4, .timeout = 5)
 {
-    char *argv[] = {"./mysh", NULL};
+    char *argv[] = {"./ai", NULL};
     int argc = 1;
 
     cr_assert_eq(error_handling_args(argc, argv), 0);

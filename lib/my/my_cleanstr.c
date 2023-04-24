@@ -27,6 +27,8 @@ char *my_cleanstr(char *str)
     char *clean = malloc(sizeof(char) * (my_strlen(str) +
     1 - count_spaces(str)));
 
+    if (clean == NULL)
+        return (NULL);
     for (int i = 0, j = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ' && str[i] != '\t') {
             clean[j] = str[i];

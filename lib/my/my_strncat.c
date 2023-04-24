@@ -14,6 +14,8 @@ char* my_strncat(char* dest, const char* src, int n)
     int pos = 0;
     char* str = malloc(sizeof(char) * (my_strlen(dest) + my_strlen(src) + 1));
 
+    if (str == NULL)
+        return NULL;
     for (int i = 0; dest[i] != '\0'; i++, pos++) {
         str[pos] = dest[i];
     }
@@ -29,6 +31,8 @@ char* my_strkcat(char* dest, const char* src)
     int pos = 0;
     char* str = malloc(sizeof(char) * (my_strlen(dest) + my_strlen(src) + 1));
 
+    if (str == NULL)
+        return NULL;
     for (int i = 0; dest[i] != '\0'; i++, pos++) {
         str[pos] = dest[i];
     }

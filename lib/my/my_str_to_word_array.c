@@ -27,9 +27,13 @@ char **allocate_memory(int nb_words, char *str, char separator)
     int j = 0;
     int nb_letter = 0;
 
+    if (tab == NULL)
+        return NULL;
     for (int i = 0; i < nb_words; i++) {
         nb_letter = get_nb_letter(str, &j, separator);
         tab[i] = malloc(sizeof(char) * (nb_letter + 1));
+        if (tab[i] == NULL)
+            return NULL;
         tab[i][nb_letter] = '\0';
     }
     tab[nb_words] = NULL;
@@ -53,6 +57,7 @@ char **my_str_to_word_array(char *str, char separator)
     int nb_words = get_nb_words(str, separator);
     char **tab = allocate_memory(nb_words, str, separator);
     int i = 0;
+
     for (; str[i] == separator && str[i] != '\0'; i++);
     for (int j = 0, k = 0; str[i] != '\0'; i++) {
         if (str[i] == separator && str[i + 1] != separator) {
