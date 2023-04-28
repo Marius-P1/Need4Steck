@@ -32,7 +32,7 @@ bool check_error(char *line, n4s_returns_t *infos)
 
     if (tab == NULL)
         return false;
-    if (my_strncmp(tab[tab_len - 1], "CP Cleared", 10) == 0)
+    if (my_strncmp(tab[tab_len - 2], "CP Cleared", 10) == 0)
         infos->cp_cleared = true;
     else
         infos->cp_cleared = false;
