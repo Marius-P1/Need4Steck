@@ -11,25 +11,31 @@
 void turn_left(float angle)
 {
     if (angle > 1) {
-        printf("WHEELS_DIR:-%.1f\n", 1);
+        printf("WHEELS_DIR:-%.1f\n", 1.0);
+        fflush(stdout);
         return;
     }
     if (angle < 0) {
-        printf("WHEELS_DIR:-%.1f\n", 0);
+        printf("WHEELS_DIR:-%.1f\n", 0.0);
+        fflush(stdout);
         return;
     }
     printf("WHEELS_DIR:-%.1f\n", angle);
+    fflush(stdout);
 }
 
 void turn_right(float angle)
 {
     if (angle > 1) {
-        printf("WHEELS_DIR:%.1f\n", 1);
+        printf("WHEELS_DIR:%.1f\n", 1.0);
+        fflush(stdout);
         return;
     }
     if (angle < 0) {
-        printf("WHEELS_DIR:%.1f\n", 0);
+        printf("WHEELS_DIR:%.1f\n", 0.0);
+        fflush(stdout);
         return;
     }
     printf("WHEELS_DIR:%.1f\n", angle);
+    fflush(stdout);
 }
