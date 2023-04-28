@@ -14,6 +14,15 @@ SRC				=		src/project_base/main.c 							\
 						src/project_base/needforstek.c 						\
 						src/project_base/help_display.c 					\
 						src/project_base/error_handling_args.c				\
+						src/car_movements/car_forward_backward.c			\
+						src/car_movements/car_wheels_movements.c			\
+						src/get_current_infos/get_all_infos.c				\
+						src/get_current_infos/get_car_speed.c				\
+						src/get_current_infos/get_car_wheels_dir.c			\
+						src/get_current_infos/get_min_max_speed.c			\
+						src/get_current_infos/get_lidar_infos.c				\
+						src/get_current_infos/get_no_error_infos.c			\
+
 
 
 TEST_FILES		=		tests/test_display_help.c 							\
