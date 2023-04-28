@@ -31,3 +31,4 @@ n4s_returns_t *get_min_speed_infos(void);
 n4s_returns_t *get_no_error_infos(void);
 float get_value(char *line);
 bool check_error(char *line, n4s_returns_t *infos);
+bool check_finish(char *line);

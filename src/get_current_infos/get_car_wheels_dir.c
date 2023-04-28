@@ -27,6 +27,7 @@ n4s_returns_t *get_wheels_dir_infos(void)
     infos->type = WHEELS_DIR;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
+    infos->finish = check_finish(line);
     free(line);
     return infos;
 }

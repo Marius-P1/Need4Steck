@@ -26,4 +26,5 @@ typedef struct n4s_returns_s {
     float data;
     float *lidar;
     bool error;
+    bool finish;
 } n4s_returns_t;

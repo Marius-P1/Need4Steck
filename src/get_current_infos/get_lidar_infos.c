@@ -54,6 +54,7 @@ n4s_returns_t *get_lidar_infos(void)
     infos->type = LIDAR;
     infos->lidar = get_lidar(line);
     infos->error = check_error(line, infos);
+    infos->finish = check_finish(line);
     free(line);
     return infos;
 }

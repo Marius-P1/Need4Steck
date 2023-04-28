@@ -27,6 +27,7 @@ n4s_returns_t *get_max_speed_infos(void)
     infos->type = MAX_SPEED;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
+    infos->finish = check_finish(line);
     free(line);
     return infos;
 }
@@ -47,6 +48,8 @@ n4s_returns_t *get_min_speed_infos(void)
     infos->data = get_value(line);
     infos->type = MIN_SPEED;
     infos->lidar = NULL;
+    infos->error = check_error(line, infos);
+    infos->finish = check_finish(line);
     free(line);
     return infos;
 }

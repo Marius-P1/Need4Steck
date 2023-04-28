@@ -41,6 +41,7 @@ n4s_returns_t *get_speed_infos(void)
     infos->type = SPEED;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
+    infos->finish = check_finish(line);
     free(line);
     return infos;
 }
