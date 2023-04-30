@@ -54,7 +54,6 @@ n4s_returns_t *get_no_error_infos(void)
 
     if (infos == NULL)
         return NULL;
-    my_putstr("GET_INFO_SIMTIME\n");
     read = getline(&line, &len, stdin);
     if (read == -1)
         return NULL;
