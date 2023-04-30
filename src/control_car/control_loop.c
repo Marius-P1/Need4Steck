@@ -40,6 +40,7 @@ void turned_right(void)
 {
     bool error = false;
     bool finish = false;
+
     turn_right(0.5);
     get_no_error_infos_bool(&error, &finish);
     usleep(300000);
@@ -56,6 +57,7 @@ void turned_left(void)
 {
     bool error = false;
     bool finish = false;
+
     turn_left(0.5);
     get_no_error_infos_bool(&error, &finish);
     usleep(300000);
