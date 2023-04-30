@@ -10,45 +10,35 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-static void get_lidar_values(char **tab, nfs_returns_t *infos)
-{
-    int i = 3;
-
-    if (infos->lidar == NULL)
-        return;
-    for (int j = 0; tab[i] != NULL || j < 32; i++ , j++) {
-        infos->lidar[j] = atof(tab[i]);
-    }
-}
-
-static void get_lidar(char *line, nfs_returns_t *infos)
+static void get_lidar(char *line, float *front, float *right, float *left)
 {
     char **tab = my_str_to_word_array(line, ':');
 
-    if (tab == NULL || my_arraylen(tab) != 36 || my_arraylen(tab) != 38)
+    if (tab == NULL || my_arraylen(tab) < 35)
         return;
-    get_lidar_values(tab, infos);
+    *front = (atof(tab[18]) + atof(tab[19])) / 2;
+    *right = (atof(tab[4]) + atof(tab[5])) / 2;
+    *left = (atof(tab[33]) + atof(tab[34])) / 2;
     for (int i = 0; tab[i] != NULL; i++)
         free(tab[i]);
     free(tab);
 }
 
-void get_lidar_infos(nfs_returns_t *infos)
+int get_lidar_infos(float *front, float *right, float *left)
 {
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;
 
-    if (infos == NULL)
-        return;
     my_putstr("GET_INFO_LIDAR\n");
     read = getline(&line, &len, stdin);
     if (read == -1)
-        return;
-    infos->data = 0;
-    infos->type = LIDAR;
-    infos->error = check_error(line, infos);
-    infos->finish = check_finish(line);
-    get_lidar(line, infos);
+        return 84;
+    if (check_error(line))
+        return 84;
+    if (check_finish(line))
+        return 1;
+    get_lidar(line, front, right, left);
     free(line);
+    return 0;
 }
