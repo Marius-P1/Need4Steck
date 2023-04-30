@@ -16,6 +16,7 @@ SRC				=		src/project_base/main.c 							\
 						src/project_base/error_handling_args.c				\
 						src/car_movements/car_forward_backward.c			\
 						src/car_movements/car_wheels_movements.c			\
+						src/car_movements/car_is_blocked.c					\
 						src/get_current_infos/get_all_infos.c				\
 						src/get_current_infos/get_car_speed.c				\
 						src/get_current_infos/get_car_wheels_dir.c			\
