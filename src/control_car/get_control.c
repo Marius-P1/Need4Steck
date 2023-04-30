@@ -13,18 +13,18 @@ float get_dir(float distance)
 {
 
     if (distance >= 2000)
-        return(0.01);
+        return 0.01;
     if (distance >= 1000)
-        return(0.01);
+        return 0.01;
     if (distance >= 500)
-        return(0.15);
+        return 0.15;
     if (distance >= 200)
-        return(0.30);
+        return 0.30;
     if (distance >= 100)
-        return(0.55);
+        return 0.55;
     if (distance < 100)
-        return(0.70);
-    return(0.90);
+        return 0.70;
+    return 0.90;
 }
 
 float get_speed(float distance)

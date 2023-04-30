@@ -20,7 +20,8 @@ int display_help(void);
 float get_speed(float distance);
 float get_dir(float distance);
 int control_loop(nfs_returns_t *global);
-float set_car_speed(float distance, nfs_returns_t *global, bool *finish, bool *error);
+float set_car_speed(float distance, nfs_returns_t *global,
+bool *finish, bool *error);
 
 
 // Car movements functions

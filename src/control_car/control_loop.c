@@ -19,8 +19,8 @@ int update_control(float dir, float right, float left)
     bool finish = false;
 
     if (right < left) {
-        printf("WHEELS_DIR:%.2f\n", dir*-1.0);
-        fprintf(stderr, "WHEELS_DIR:%.2f\n", dir*-1.0);
+        printf("WHEELS_DIR:%.2f\n", dir * -1.0);
+        fprintf(stderr, "WHEELS_DIR:%.2f\n", dir * -1.0);
     } else if (right > left) {
         printf("WHEELS_DIR:%.2f\n", dir);
         fprintf(stderr, "WHEELS_DIR:%.2f\n", dir);
