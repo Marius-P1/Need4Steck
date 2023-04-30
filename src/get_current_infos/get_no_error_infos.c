@@ -25,7 +25,7 @@ bool check_finish(char *line)
     return false;
 }
 
-bool check_error(char *line, n4s_returns_t *infos)
+bool check_error(char *line, nfs_returns_t *infos)
 {
     char **tab = my_str_to_word_array(line, ':');
     int tab_len = my_arraylen(tab);
@@ -45,9 +45,9 @@ bool check_error(char *line, n4s_returns_t *infos)
     return true;
 }
 
-n4s_returns_t *get_no_error_infos(void)
+nfs_returns_t *get_no_error_infos(void)
 {
-    n4s_returns_t *infos = malloc(sizeof(n4s_returns_t));
+    nfs_returns_t *infos = malloc(sizeof(nfs_returns_t));
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;

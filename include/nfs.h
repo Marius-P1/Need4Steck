@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "n4s_returns.h"
+#include "nfs_returns.h"
 #include "lib.h"
 
 // Basic Need4Stek functions
@@ -22,13 +22,13 @@ void go_backward(float speed);
 
 
 // Get current infos functions
-n4s_returns_t *get_general_infos(return_type_t type);
-n4s_returns_t *get_lidar_infos(void);
-n4s_returns_t *get_speed_infos(void);
-n4s_returns_t *get_wheels_dir_infos(void);
-n4s_returns_t *get_max_speed_infos(void);
-n4s_returns_t *get_min_speed_infos(void);
-n4s_returns_t *get_no_error_infos(void);
+nfs_returns_t *get_general_infos(return_type_t type);
+nfs_returns_t *get_lidar_infos(void);
+nfs_returns_t *get_speed_infos(void);
+nfs_returns_t *get_wheels_dir_infos(void);
+nfs_returns_t *get_max_speed_infos(void);
+nfs_returns_t *get_min_speed_infos(void);
+nfs_returns_t *get_no_error_infos(void);
 float get_value(char *line);
-bool check_error(char *line, n4s_returns_t *infos);
+bool check_error(char *line, nfs_returns_t *infos);
 bool check_finish(char *line);

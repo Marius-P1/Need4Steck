@@ -8,7 +8,7 @@
 #include "nfs.h"
 #include <stdio.h>
 
-n4s_returns_t *get_general_infos(return_type_t type)
+nfs_returns_t *get_general_infos(return_type_t type)
 {
     switch (type) {
         case LIDAR:
