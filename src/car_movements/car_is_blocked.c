@@ -9,13 +9,11 @@
 
 int car_is_blocked(float *lidar)
 {
-    bool is_blocked = false;
-
-    if (lidar[0] < 0.5 || lidar[31] < 0.5)
-        is_blocked = true;
-
-    if (is_blocked == true)
+    if (sizeof(lidar) != 32)
+        return 84;
+    if (lidar[0] < 0.5 || lidar[31] < 0.5) {
         return 1;
-    else
+    } else {
         return 0;
+    }
 }
