@@ -11,32 +11,32 @@
 
 void go_forward(float speed)
 {
-    if (speed > 1) {
-        printf("CAR_FORWARD:%.1f\n", 1.0);
+    if (speed > 1.0000) {
+        printf("CAR_FORWARD:%.2f\n", 1.00);
         fflush(stdout);
         return;
     }
-    if (speed < 0) {
-        printf("CAR_FORWARD:%.1f\n", 0.0);
+    if (speed < 0.0000) {
+        printf("CAR_FORWARD:%.2f\n", 0.00);
         fflush(stdout);
         return;
     }
-    printf("CAR_FORWARD:%.1f\n", speed);
+    printf("CAR_FORWARD:%.2f\n", speed);
     fflush(stdout);
 }
 
 void go_backward(float speed)
 {
-    if (speed > 1) {
-        printf("CAR_BACKWARDS:%.1f\n", 1.0);
+    if (speed > 1.0000) {
+        printf("CAR_BACKWARDS:%.2f\n", 1.00);
         fflush(stdout);
         return;
     }
-    if (speed < 0) {
-        printf("CAR_BACKWARDS:%.1f\n", 0.0);
+    if (speed < 0.0000) {
+        printf("CAR_BACKWARDS:%.2f\n", 0.00);
         fflush(stdout);
         return;
     }
-    printf("CAR_BACKWARDS:%.1f\n", speed);
+    printf("CAR_BACKWARDS:%.2f\n", speed);
     fflush(stdout);
 }

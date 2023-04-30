@@ -16,19 +16,25 @@ int error_handling_args(int argc, char **argv);
 int display_help(void);
 
 
+// Control loop functions
+float get_speed(float distance);
+float get_dir(float distance);
+int control_loop(nfs_returns_t *global);
+float set_car_speed(float distance, nfs_returns_t *global,
+bool *finish, bool *error);
+
+
 // Car movements functions
 void go_forward(float speed);
 void go_backward(float speed);
+void turn_right(float angle);
+void turn_left(float angle);
 
 
 // Get current infos functions
-void get_general_infos(return_type_t type, nfs_returns_t *infos);
-void get_lidar_infos(nfs_returns_t *infos);
-void get_speed_infos(nfs_returns_t *infos);
-void get_wheels_dir_infos(nfs_returns_t *infos);
-void get_max_speed_infos(nfs_returns_t *infos);
-void get_min_speed_infos(nfs_returns_t *infos);
+int get_lidar_infos(float *front, float *right, float *left);
 void get_no_error_infos(nfs_returns_t *infos);
 float get_value(char *line);
-bool check_error(char *line, nfs_returns_t *infos);
+bool check_error(char *line);
 bool check_finish(char *line);
+void get_no_error_infos_bool(bool *error, bool *finish);
