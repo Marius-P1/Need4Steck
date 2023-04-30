@@ -25,10 +25,6 @@ typedef struct n4s_returns_s {
     bool cp_cleared;
     float data;
     float *lidar;
-    float old_speed;
-    float speed;
-    float old_wheels_dir;
-    float wheels_dir;
     bool error;
     bool finish;
 } n4s_returns_t;
