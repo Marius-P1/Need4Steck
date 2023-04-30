@@ -24,7 +24,6 @@ void get_max_speed_infos(nfs_returns_t *infos)
         return;
     infos->data = get_value(line);
     infos->type = MAX_SPEED;
-    infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
     free(line);
@@ -44,7 +43,6 @@ void get_min_speed_infos(nfs_returns_t *infos)
         return;
     infos->data = get_value(line);
     infos->type = MIN_SPEED;
-    infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
     free(line);

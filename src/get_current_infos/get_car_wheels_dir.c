@@ -24,7 +24,6 @@ void get_wheels_dir_infos(nfs_returns_t *infos)
         return;
     infos->data = get_value(line);
     infos->type = WHEELS_DIR;
-    infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
     free(line);

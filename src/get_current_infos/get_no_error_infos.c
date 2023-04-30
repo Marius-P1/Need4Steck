@@ -58,7 +58,6 @@ void get_no_error_infos(nfs_returns_t *infos)
         return;
     infos->data = 0;
     infos->type = NO_ERROR;
-    infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
 }
