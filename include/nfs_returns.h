@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2023
-** n4s_returns.h
+** nfs_returns.h
 ** File description:
-** n4s_returns
+** nfs_returns
 */
 
 #pragma once
@@ -20,11 +20,11 @@ typedef enum return_type_e {
     ERROR
 } return_type_t;
 
-typedef struct n4s_returns_s {
+typedef struct nfs_returns_s {
     return_type_t type;
     bool cp_cleared;
     float data;
     float *lidar;
     bool error;
     bool finish;
-} n4s_returns_t;
+} nfs_returns_t;

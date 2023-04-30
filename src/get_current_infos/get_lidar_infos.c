@@ -37,9 +37,9 @@ static float *get_lidar(char *line)
     return lidar;
 }
 
-n4s_returns_t *get_lidar_infos(void)
+nfs_returns_t *get_lidar_infos(void)
 {
-    n4s_returns_t *infos = malloc(sizeof(n4s_returns_t));
+    nfs_returns_t *infos = malloc(sizeof(nfs_returns_t));
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;
