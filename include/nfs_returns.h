@@ -21,10 +21,8 @@ typedef enum return_type_e {
 } return_type_t;
 
 typedef struct nfs_returns_s {
-    return_type_t type;
-    bool cp_cleared;
-    float data;
-    float *lidar;
-    bool error;
-    bool finish;
+    float speed;
+    float dir;
+    float old_speed;
+    float old_dir;
 } nfs_returns_t;
