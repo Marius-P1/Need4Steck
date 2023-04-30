@@ -13,12 +13,11 @@
 static void get_lidar_values(char **tab, nfs_returns_t *infos)
 {
     int i = 3;
-    int j = 0;
 
     if (infos->lidar == NULL)
         return;
-    for (; tab[i] != NULL || j < i + 32; i++) {
-        infos->lidar[i] = atof(tab[i]);
+    for (int j = 0; tab[i] != NULL || j < 32; i++ , j++) {
+        infos->lidar[j] = atof(tab[i]);
     }
 }
 
