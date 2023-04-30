@@ -27,6 +27,7 @@ SRC				=		src/project_base/main.c 							\
 
 TEST_FILES		=		tests/test_display_help.c 							\
 						tests/test_handling_args.c							\
+						tests/test_car_movements.c							\
 
 SRC_TEST		=		$(filter-out src/project_base/main.c,$(SRC))
 
