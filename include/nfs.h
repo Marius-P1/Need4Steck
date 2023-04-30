@@ -22,13 +22,13 @@ void go_backward(float speed);
 
 
 // Get current infos functions
-nfs_returns_t *get_general_infos(return_type_t type);
-nfs_returns_t *get_lidar_infos(void);
-nfs_returns_t *get_speed_infos(void);
-nfs_returns_t *get_wheels_dir_infos(void);
-nfs_returns_t *get_max_speed_infos(void);
-nfs_returns_t *get_min_speed_infos(void);
-nfs_returns_t *get_no_error_infos(void);
+void get_general_infos(return_type_t type, nfs_returns_t *infos);
+void get_lidar_infos(nfs_returns_t *infos);
+void get_speed_infos(nfs_returns_t *infos);
+void get_wheels_dir_infos(nfs_returns_t *infos);
+void get_max_speed_infos(nfs_returns_t *infos);
+void get_min_speed_infos(nfs_returns_t *infos);
+void get_no_error_infos(nfs_returns_t *infos);
 float get_value(char *line);
 bool check_error(char *line, nfs_returns_t *infos);
 bool check_finish(char *line);

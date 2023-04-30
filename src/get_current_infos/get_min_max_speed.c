@@ -10,46 +10,42 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-nfs_returns_t *get_max_speed_infos(void)
+void get_max_speed_infos(nfs_returns_t *infos)
 {
-    nfs_returns_t *infos = malloc(sizeof(nfs_returns_t));
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;
 
     if (infos == NULL)
-        return NULL;
+        return;
     my_putstr("GET_CAR_SPEED_MAX\n");
     read = getline(&line, &len, stdin);
     if (read == -1)
-        return NULL;
+        return;
     infos->data = get_value(line);
     infos->type = MAX_SPEED;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
     free(line);
-    return infos;
 }
 
-nfs_returns_t *get_min_speed_infos(void)
+void get_min_speed_infos(nfs_returns_t *infos)
 {
-    nfs_returns_t *infos = malloc(sizeof(nfs_returns_t));
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;
 
     if (infos == NULL)
-        return NULL;
+        return;
     my_putstr("GET_CAR_SPEED_MIN\n");
     read = getline(&line, &len, stdin);
     if (read == -1)
-        return NULL;
+        return;
     infos->data = get_value(line);
     infos->type = MIN_SPEED;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
     free(line);
-    return infos;
 }

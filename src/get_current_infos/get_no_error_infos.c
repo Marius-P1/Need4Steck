@@ -36,7 +36,7 @@ bool check_error(char *line, nfs_returns_t *infos)
         infos->cp_cleared = true;
     else
         infos->cp_cleared = false;
-    if (my_strcmp(tab[2], "No errors so far") == 0
+    if (tab_len > 2 && my_strcmp(tab[2], "No errors so far") == 0
     && my_strcmp(tab[1], "OK") == 0)
         return false;
     for (int i = 0; tab[i] != NULL; i++)
@@ -45,22 +45,20 @@ bool check_error(char *line, nfs_returns_t *infos)
     return true;
 }
 
-nfs_returns_t *get_no_error_infos(void)
+void get_no_error_infos(nfs_returns_t *infos)
 {
-    nfs_returns_t *infos = malloc(sizeof(nfs_returns_t));
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;
 
     if (infos == NULL)
-        return NULL;
+        return;
     read = getline(&line, &len, stdin);
     if (read == -1)
-        return NULL;
+        return;
     infos->data = 0;
     infos->type = NO_ERROR;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
-    return infos;
 }

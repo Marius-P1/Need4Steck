@@ -10,24 +10,22 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-nfs_returns_t *get_wheels_dir_infos(void)
+void get_wheels_dir_infos(nfs_returns_t *infos)
 {
-    nfs_returns_t *infos = malloc(sizeof(nfs_returns_t));
     char *line = NULL;
     size_t len = 0;
     ssize_t read = 0;
 
     if (infos == NULL)
-        return NULL;
+        return;
     my_putstr("GET_CURRENT_WHEELS\n");
     read = getline(&line, &len, stdin);
     if (read == -1)
-        return NULL;
+        return;
     infos->data = get_value(line);
     infos->type = WHEELS_DIR;
     infos->lidar = NULL;
     infos->error = check_error(line, infos);
     infos->finish = check_finish(line);
     free(line);
-    return infos;
 }
