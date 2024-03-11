@@ -14,8 +14,7 @@ To run the program, you will need to launch CoppeliaSim, which is a platform for
 
     ./pipes.sh
 
-This script will bind the `ai` executable with the `n4s` interpreter (provided by Epitech). 
-The `ai` executable sends commands to the standard output, which are then interpreted by the `n4s` executable, which sends commands to the car in the simulator.
+This script will bind the `ai` executable with the `n4s` interpreter (provided by Epitech). The `ai` executable sends commands to the standard output, which are then interpreted by the `n4s` executable, which sends commands to the car in the simulator.
 
 ## Features
 
